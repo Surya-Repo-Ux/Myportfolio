@@ -33,7 +33,7 @@ export default function Experience() {
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Experience
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-shimmer mb-6">
             Professional Journey
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ export default function Experience() {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Current Role */}
-          <Card className="glass-effect border-border hover:border-primary transition-all duration-300">
+          <Card className="glass-effect border-border hover:border-primary transition-all duration-300 hover-lift card-glow">
             <CardContent className="p-8">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                 <div>
@@ -94,7 +94,7 @@ export default function Experience() {
           </Card>
 
           {/* Education */}
-          <Card className="glass-effect border-border hover:border-primary transition-all duration-300">
+          <Card className="glass-effect border-border hover:border-primary transition-all duration-300 hover-lift card-glow">
             <CardContent className="p-8">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                 <div>
@@ -120,7 +120,7 @@ export default function Experience() {
           </Card>
 
           {/* Research Publication */}
-          <Card className="glass-effect border-border hover:border-primary transition-all duration-300">
+          <Card className="glass-effect border-border hover:border-primary transition-all duration-300 hover-lift card-glow">
             <CardContent className="p-8">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                 <div>
@@ -159,9 +159,9 @@ export default function Experience() {
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               {achievements.map((achievement) => (
-                <Card key={achievement.title} className="glass-effect border-border hover:border-primary transition-all duration-300">
+                <Card key={achievement.title} className="glass-effect border-border hover:border-primary transition-all duration-300 hover-lift card-glow">
                   <CardContent className="p-6 text-center">
-                    <div className="text-4xl mb-4">{achievement.icon}</div>
+                    <div className="text-4xl mb-4 animate-pulse-slow">{achievement.icon}</div>
                     <h4 className="text-lg font-semibold text-primary mb-2">
                       {achievement.title}
                     </h4>

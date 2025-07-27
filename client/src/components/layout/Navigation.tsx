@@ -63,7 +63,7 @@ export default function Navigation() {
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           <div 
-            className="text-2xl font-bold gradient-text cursor-pointer"
+            className="text-2xl font-bold text-shimmer cursor-pointer animate-pulse-slow"
             onClick={() => scrollToSection("home")}
           >
             ST

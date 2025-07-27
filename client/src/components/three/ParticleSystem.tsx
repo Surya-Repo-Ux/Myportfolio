@@ -8,32 +8,57 @@ export default function ParticleSystem() {
   useEffect(() => {
     if (!scene || !camera || !renderer) return;
 
-    // Create particle system
+    // Create enhanced particle system
     const createParticles = () => {
-      const particleCount = 1000;
+      const particleCount = 1500;
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
+      const sizes = new Float32Array(particleCount);
       
       for (let i = 0; i < particleCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 20;
-        positions[i + 1] = (Math.random() - 0.5) * 20;
-        positions[i + 2] = (Math.random() - 0.5) * 20;
+        // Create spiral galaxy pattern
+        const radius = Math.random() * 15;
+        const angle = Math.random() * Math.PI * 2;
+        const height = (Math.random() - 0.5) * 10;
         
-        colors[i] = Math.random() * 0.5 + 0.5;
-        colors[i + 1] = Math.random() * 0.5 + 0.8;
-        colors[i + 2] = 1;
+        positions[i] = Math.cos(angle) * radius + (Math.random() - 0.5) * 2;
+        positions[i + 1] = height;
+        positions[i + 2] = Math.sin(angle) * radius + (Math.random() - 0.5) * 2;
+        
+        // Enhanced color palette
+        const colorVariation = Math.random();
+        if (colorVariation < 0.3) {
+          // Cyan
+          colors[i] = 0.0;
+          colors[i + 1] = 0.8 + Math.random() * 0.2;
+          colors[i + 2] = 1.0;
+        } else if (colorVariation < 0.6) {
+          // Purple
+          colors[i] = 0.5 + Math.random() * 0.3;
+          colors[i + 1] = 0.2;
+          colors[i + 2] = 1.0;
+        } else {
+          // Gold
+          colors[i] = 1.0;
+          colors[i + 1] = 0.8 + Math.random() * 0.2;
+          colors[i + 2] = 0.2;
+        }
+        
+        sizes[i / 3] = Math.random() * 0.03 + 0.01;
       }
       
       const geometry = new (window as any).THREE.BufferGeometry();
       geometry.setAttribute('position', new (window as any).THREE.BufferAttribute(positions, 3));
       geometry.setAttribute('color', new (window as any).THREE.BufferAttribute(colors, 3));
+      geometry.setAttribute('size', new (window as any).THREE.BufferAttribute(sizes, 1));
       
       const material = new (window as any).THREE.PointsMaterial({
-        size: 0.02,
+        size: 0.025,
         vertexColors: true,
         blending: (window as any).THREE.AdditiveBlending,
         transparent: true,
-        opacity: 0.8
+        opacity: 0.9,
+        sizeAttenuation: true
       });
       
       const particleSystem = new (window as any).THREE.Points(geometry, material);
@@ -75,16 +100,29 @@ export default function ParticleSystem() {
     const particles = createParticles();
     const geometries = createFloatingGeometry();
 
-    // Animation loop
+    // Enhanced animation loop
     const animationLoop = () => {
+      const time = Date.now() * 0.001;
+      
       if (particles) {
-        particles.rotation.x += 0.001;
-        particles.rotation.y += 0.002;
+        particles.rotation.x += 0.0005;
+        particles.rotation.y += 0.001;
+        
+        // Add wave motion to particles
+        const positions = particles.geometry.attributes.position.array;
+        for (let i = 1; i < positions.length; i += 3) {
+          positions[i] += Math.sin(time + positions[i * 0.01]) * 0.001;
+        }
+        particles.geometry.attributes.position.needsUpdate = true;
       }
       
       geometries.forEach((shape, index) => {
-        shape.rotation.x += 0.01 * (index + 1);
-        shape.rotation.y += 0.01 * (index + 1);
+        shape.rotation.x += 0.005 * (index + 1);
+        shape.rotation.y += 0.008 * (index + 1);
+        shape.rotation.z += 0.003 * (index + 1);
+        
+        // Add floating animation
+        shape.position.y += Math.sin(time * 0.5 + index) * 0.002;
       });
     };
 

@@ -25,9 +25,9 @@ export default function Hero() {
             Software & AI Developer
           </Badge>
           
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-up">
             G'day, I'm{" "}
-            <span className="gradient-text">Suryaprasanth T</span>
+            <span className="text-shimmer">Suryaprasanth T</span>
           </h1>
           
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -55,7 +55,7 @@ export default function Hero() {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com/Surya-Repo-Uxk"
+              href="https://github.com/Surya-Repo-Ux"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors p-2"
@@ -64,7 +64,7 @@ export default function Hero() {
               <span className="sr-only">GitHub</span>
             </a>
             <a
-              href="https://linkedin.com/in/suryaprasanth-t"
+              href="https://www.linkedin.com/in/suryaprasantht"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors p-2"
@@ -91,7 +91,7 @@ export default function Hero() {
       {/* Social Links - Desktop only */}
       <div className="absolute left-6 top-1/2 transform -translate-y-1/2 space-y-4 hidden lg:block">
         <a
-          href="https://github.com/Surya-Repo-Uxk"
+          href="https://github.com/Surya-Repo-Ux"
           target="_blank"
           rel="noopener noreferrer"
           className="block text-muted-foreground hover:text-primary transition-colors text-xl p-2"
@@ -100,7 +100,7 @@ export default function Hero() {
           <span className="sr-only">GitHub</span>
         </a>
         <a
-          href="https://linkedin.com/in/suryaprasanth-t"
+          href="https://www.linkedin.com/in/suryaprasantht"
           target="_blank"
           rel="noopener noreferrer"
           className="block text-muted-foreground hover:text-primary transition-colors text-xl p-2"

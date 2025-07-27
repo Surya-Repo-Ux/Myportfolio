@@ -25,7 +25,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   };
 
   return (
-    <Card className="project-card glass-effect border-border hover:border-primary transition-all duration-300 group overflow-hidden">
+    <Card className="project-card glass-effect border-border hover:border-primary transition-all duration-300 group overflow-hidden hover-lift card-glow animate-fade-in">
       <div className="relative overflow-hidden">
         <img
           src={project.image}
@@ -83,7 +83,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             ) : (
               <>
                 <Github className="w-4 h-4 mr-2" />
-                Coming Soon
+                In Development
               </>
             )}
           </Button>

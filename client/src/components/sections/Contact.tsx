@@ -87,7 +87,7 @@ export default function Contact() {
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Get In Touch
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-shimmer mb-6">
             Let's Work Together
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -135,7 +135,7 @@ export default function Contact() {
               </h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/Surya-Repo-Uxk"
+                  href="https://github.com/Surya-Repo-Ux"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -144,7 +144,7 @@ export default function Contact() {
                   <span className="sr-only">GitHub</span>
                 </a>
                 <a
-                  href="https://linkedin.com/in/suryaprasanth-t"
+                  href="https://www.linkedin.com/in/suryaprasantht"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -156,7 +156,7 @@ export default function Contact() {
             </div>
 
             {/* Quick Info */}
-            <Card className="glass-effect border-border">
+            <Card className="glass-effect border-border hover-lift card-glow">
               <CardContent className="p-6">
                 <h4 className="text-lg font-semibold text-primary mb-4">
                   Quick Info
@@ -173,7 +173,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <Card className="glass-effect border-border">
+          <Card className="glass-effect border-border hover-lift card-glow">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">

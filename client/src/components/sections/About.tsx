@@ -23,9 +23,9 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="parallax-bg space-y-6">
             <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-              alt="Professional developer workspace with multiple monitors"
-              className="rounded-2xl shadow-2xl w-full h-auto object-cover"
+              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              alt="AI and machine learning development workspace"
+              className="rounded-2xl shadow-2xl w-full h-auto object-cover hover-lift"
             />
           </div>
           
@@ -34,7 +34,7 @@ export default function About() {
               <Badge variant="outline" className="mb-4 border-primary text-primary">
                 About Me
               </Badge>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 gradient-text">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-shimmer">
                 Passionate Developer & AI Enthusiast
               </h2>
             </div>
@@ -59,9 +59,9 @@ export default function About() {
               <h3 className="text-xl font-semibold text-primary">Technical Skills</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {skills.map((skill) => (
-                  <Card key={skill.name} className="glass-effect border-border hover:border-primary transition-colors">
+                  <Card key={skill.name} className="glass-effect border-border hover:border-primary transition-colors hover-lift card-glow">
                     <CardContent className="p-4 text-center">
-                      <div className="text-2xl mb-2">{skill.icon}</div>
+                      <div className="text-2xl mb-2 animate-bounce-slow">{skill.icon}</div>
                       <p className="text-sm font-medium">{skill.name}</p>
                       <p className="text-xs text-muted-foreground">{skill.category}</p>
                     </CardContent>
