@@ -43,9 +43,12 @@ export default function Navigation() {
   const downloadResume = () => {
     // Create a download link for the resume
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // This would be the actual resume file
+    link.href = '/resume.pdf';
     link.download = 'Suryaprasanth_T_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   const navItems = [
