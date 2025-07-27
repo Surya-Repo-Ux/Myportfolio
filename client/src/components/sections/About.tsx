@@ -41,17 +41,15 @@ export default function About() {
             
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
-                I'm Suryaprasanth T, a BTech Information Technology student at St. Joseph's College of Engineering, Chennai, 
-                with a CGPA of 8.24. I'm passionate about creating innovative solutions using cutting-edge technologies.
+                Write your introduction here. Include your name, current education/job, and what you're passionate about.
               </p>
               <p>
-                My experience as a Software & AI Developer Intern at Intellect Design Arena has given me hands-on experience 
-                with React.js, Node.js, PostgreSQL, and AI/ML technologies. I'm particularly interested in open-source 
-                development and have contributed to projects that promote FOSS adoption.
+                Describe your experience, internships, or projects. Mention specific technologies you've worked with 
+                and any special interests you have in your field.
               </p>
               <p>
-                I've won multiple hackathons including HACK-A-BOT 2024 (1st Place) and received Group Special Mention 
-                at Cyberthon 2025. I've also published research on swarm intelligence for drug toxicity prediction.
+                Highlight your achievements, awards, competitions, or any notable work you've done. This helps 
+                showcase your accomplishments and expertise.
               </p>
             </div>
 

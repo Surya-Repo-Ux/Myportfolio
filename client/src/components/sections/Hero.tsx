@@ -27,12 +27,11 @@ export default function Hero() {
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-up">
             G'day, I'm{" "}
-            <span className="text-shimmer">Suryaprasanth T</span>
+            <span className="text-shimmer">Your Name Here</span>
           </h1>
 
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-            BTech IT student and AI enthusiast with experience in React.js, Node.js, Python, and Machine Learning. 
-            Building innovative solutions at the intersection of technology and intelligence.
+            Your professional description here. Mention your skills, education, and what you're passionate about.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -55,7 +54,7 @@ export default function Hero() {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com/Surya-Repo-Ux"
+              href="https://github.com/YourGitHubUsername"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors p-2"
@@ -64,7 +63,7 @@ export default function Hero() {
               <span className="sr-only">GitHub</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/suryaprasantht"
+              href="https://www.linkedin.com/in/YourLinkedInUsername"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors p-2"
@@ -73,7 +72,7 @@ export default function Hero() {
               <span className="sr-only">LinkedIn</span>
             </a>
             <a
-              href="mailto:saipraba2006@gmail.com"
+              href="mailto:your.email@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors p-2"
             >
               <Mail className="w-6 h-6" />
