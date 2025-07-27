@@ -24,17 +24,17 @@ export default function Hero() {
           <Badge variant="outline" className="mb-6 border-primary text-primary">
             Software & AI Developer
           </Badge>
-          
+
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-up">
             G'day, I'm{" "}
             <span className="text-shimmer">Suryaprasanth T</span>
           </h1>
-          
+
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
             BTech IT student and AI enthusiast with experience in React.js, Node.js, Python, and Machine Learning. 
             Building innovative solutions at the intersection of technology and intelligence.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               onClick={scrollToProjects}
