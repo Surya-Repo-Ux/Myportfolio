@@ -4,16 +4,16 @@ import ProjectCard from "@/components/ui/ProjectCard";
 export default function Projects() {
   const projects = [
     {
-      title: "Your Project Title",
-      description: "Description of your project. Explain what it does, who it's for, and what makes it special or unique.",
+      title: "ARIS for Research Scholars",
+      description: "Open-source AI-powered research assistant designed to streamline academic workflows. Features custom LLM pipeline for citation extraction, contextualization, and scientific language simplification.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-      tags: ["Technology1", "Technology2", "Technology3", "Technology4"],
-      link: "https://github.com/yourusername/your-repo",
+      tags: ["Python", "Flask", "AI/ML", "Hugging Face", "OpenCV"],
+      link: "#",
       features: [
-        "Key feature 1 of your project",
-        "Key feature 2 with specific metrics if available",
-        "Key feature 3 highlighting technical achievements",
-        "Key feature 4 showing impact or results"
+        "Custom LLM pipeline for research paper analysis",
+        "25% efficiency improvement through fine-tuning",
+        "Open-source ML frameworks integration",
+        "Citation extraction and contextualization"
       ]
     },
     {

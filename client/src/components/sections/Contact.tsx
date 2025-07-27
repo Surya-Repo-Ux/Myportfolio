@@ -63,19 +63,19 @@ export default function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@gmail.com",
-      href: "mailto:your.email@gmail.com"
+      value: "saipraba2006@gmail.com",
+      href: "mailto:saipraba2006@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 Your Phone Number",
-      href: "tel:+91YourPhoneNumber"
+      value: "+91 8220403231",
+      href: "tel:+918220403231"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Your City, Your State",
+      value: "Chennai, Tamil Nadu",
       href: null
     }
   ];

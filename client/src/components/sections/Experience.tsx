@@ -49,20 +49,20 @@ export default function Experience() {
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                 <div>
                   <h3 className="text-2xl font-bold text-primary mb-2">
-                    Your Job Title
+                    Software & AI Developer Intern
                   </h3>
                   <p className="text-xl text-foreground font-medium">
-                    Your Company Name
+                    Intellect Design Arena
                   </p>
                 </div>
                 <div className="flex flex-col lg:text-right text-muted-foreground mt-4 lg:mt-0">
                   <div className="flex items-center lg:justify-end mb-1">
                     <Calendar className="w-4 h-4 mr-2" />
-                    <span>Your Employment Dates</span>
+                    <span>Jun 2025 – Jul 2025</span>
                   </div>
                   <div className="flex items-center lg:justify-end">
                     <MapPin className="w-4 h-4 mr-2" />
-                    <span>Your Work Location</span>
+                    <span>Chennai</span>
                   </div>
                 </div>
               </div>
