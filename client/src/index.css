@@ -256,6 +256,38 @@
   }
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced cursor effects */
+body {
+  cursor: none;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: pulse-cursor 2s infinite;
+}
+
+@keyframes pulse-cursor {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
 /* Three.js canvas styling */
 #three-canvas {
   position: fixed;
@@ -263,6 +295,31 @@
   left: 0;
   z-index: -1;
   pointer-events: none;
+}
+
+/* Scroll-triggered animations */
+@keyframes scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-animate {
+  animation: scroll-reveal 0.8s ease-out forwards;
+}
+
+/* Parallax scroll effects */
+.parallax-slow {
+  transform: translateY(calc(var(--scroll) * -0.5px));
+}
+
+.parallax-fast {
+  transform: translateY(calc(var(--scroll) * -1px));
 }
 
 /* Custom scrollbar */
