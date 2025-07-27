@@ -401,6 +401,9 @@ export default function ParticleSystem() {
       mouseX = (event.clientX - window.innerWidth / 2) / window.innerWidth;
       mouseY = (event.clientY - window.innerHeight / 2) / window.innerHeight;
 
+      // Calculate mouse influence early for use throughout the function
+      const mouseInfluence = Math.abs(mouseX) + Math.abs(mouseY);
+
       // Update cursor trail with smooth following
       cursorTrail.forEach((particle, index) => {
         setTimeout(() => {
@@ -412,7 +415,7 @@ export default function ParticleSystem() {
       // Smooth camera movement with more responsiveness
       camera.position.x += (mouseX * 4 - camera.position.x) * 0.08;
       camera.position.y += (-mouseY * 4 - camera.position.y) * 0.08;
-      camera.position.z += (Math.abs(mouseX) + Math.abs(mouseY)) * 1.5;
+      camera.position.z += mouseInfluence * 1.5;
       camera.lookAt(scene.position);
 
       // Enhanced particle interaction with wave propagation
@@ -423,7 +426,6 @@ export default function ParticleSystem() {
         // Create ripple effect from cursor position
         const colors = particles.geometry.attributes.color.array;
         const positions = particles.geometry.attributes.position.array;
-        const mouseInfluence = Math.abs(mouseX) + Math.abs(mouseY);
 
         for (let i = 0; i < colors.length; i += 3) {
           const particleX = positions[i];
