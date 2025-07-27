@@ -63,21 +63,26 @@ export default function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@gmail.com",
-      href: "mailto:your.email@gmail.com"
+      value: "suryaprasanth.dev@gmail.com",
+      href: "mailto:suryaprasanth.dev@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 Your Phone Number",
-      href: "tel:+91YourPhoneNumber"
+      value: "+91 XXXXX XXXXX", // Replace with your actual number
+      href: "tel:+91XXXXXXXXXX",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Your City, Your State",
-      href: null
-    }
+      value: "India", // Update with your location
+    },
+    {
+      icon: Globe,
+      label: "Portfolio",
+      value: "suryaprasanth.dev",
+      href: "https://your-replit-url.replit.app", // Will be updated after deployment
+    },
   ];
 
   return (
@@ -203,7 +208,7 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject *</Label>
                   <Input
@@ -216,7 +221,7 @@ export default function Contact() {
                     className="bg-background border-border focus:border-primary"
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="message">Message *</Label>
                   <Textarea
@@ -230,7 +235,7 @@ export default function Contact() {
                     className="bg-background border-border focus:border-primary resize-none"
                   />
                 </div>
-                
+
                 <Button
                   type="submit"
                   disabled={isSubmitting}
