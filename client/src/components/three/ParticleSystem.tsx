@@ -9,23 +9,37 @@ export default function ParticleSystem() {
   useEffect(() => {
     if (!scene || !camera || !renderer) return;
 
-    // Enhanced particle system with video-like effects
+    // Enhanced particle system with full-screen coverage
     const createParticles = () => {
-      const particleCount = 2000;
+      const particleCount = 3500;
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
       const sizes = new Float32Array(particleCount);
       const velocities = new Float32Array(particleCount * 3);
       
       for (let i = 0; i < particleCount * 3; i += 3) {
-        // Create flowing galaxy pattern
-        const radius = Math.random() * 20;
-        const angle = Math.random() * Math.PI * 2;
-        const height = (Math.random() - 0.5) * 15;
+        // Create full-screen distribution with multiple patterns
+        const pattern = Math.random();
         
-        positions[i] = Math.cos(angle) * radius + (Math.random() - 0.5) * 5;
-        positions[i + 1] = height;
-        positions[i + 2] = Math.sin(angle) * radius + (Math.random() - 0.5) * 5;
+        if (pattern < 0.4) {
+          // Galaxy spiral pattern
+          const radius = Math.random() * 25;
+          const angle = Math.random() * Math.PI * 2;
+          const height = (Math.random() - 0.5) * 20;
+          positions[i] = Math.cos(angle) * radius + (Math.random() - 0.5) * 8;
+          positions[i + 1] = height;
+          positions[i + 2] = Math.sin(angle) * radius + (Math.random() - 0.5) * 8;
+        } else if (pattern < 0.7) {
+          // Grid-like distribution for full coverage
+          positions[i] = (Math.random() - 0.5) * 40;
+          positions[i + 1] = (Math.random() - 0.5) * 30;
+          positions[i + 2] = (Math.random() - 0.5) * 25;
+        } else {
+          // Random cloud distribution
+          positions[i] = (Math.random() - 0.5) * 50;
+          positions[i + 1] = (Math.random() - 0.5) * 35;
+          positions[i + 2] = (Math.random() - 0.5) * 30;
+        }
         
         // Add velocities for flowing motion
         velocities[i] = (Math.random() - 0.5) * 0.02;
@@ -66,12 +80,13 @@ export default function ParticleSystem() {
       geometry.userData = { velocities };
       
       const material = new (window as any).THREE.PointsMaterial({
-        size: 0.03,
+        size: 0.04,
         vertexColors: true,
         blending: (window as any).THREE.AdditiveBlending,
         transparent: true,
-        opacity: 0.8,
-        sizeAttenuation: true
+        opacity: 0.9,
+        sizeAttenuation: true,
+        alphaTest: 0.1
       });
       
       const particleSystem = new (window as any).THREE.Points(geometry, material);
@@ -80,19 +95,19 @@ export default function ParticleSystem() {
       return particleSystem;
     };
 
-    // Create flowing energy streams
+    // Create flowing energy streams across full screen
     const createEnergyStreams = () => {
       const streams = [];
       
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 8; i++) {
         const points = [];
-        const streamLength = 50;
+        const streamLength = 80;
         
         for (let j = 0; j < streamLength; j++) {
           const t = j / streamLength;
-          const x = Math.sin(t * Math.PI * 4 + i) * 8;
-          const y = (t - 0.5) * 20;
-          const z = Math.cos(t * Math.PI * 3 + i) * 6;
+          const x = Math.sin(t * Math.PI * 6 + i) * 15 + (Math.random() - 0.5) * 10;
+          const y = (t - 0.5) * 35;
+          const z = Math.cos(t * Math.PI * 4 + i) * 12 + (Math.random() - 0.5) * 8;
           points.push(new (window as any).THREE.Vector3(x, y, z));
         }
         
@@ -112,11 +127,11 @@ export default function ParticleSystem() {
       return streams;
     };
 
-    // Create pulsing geometric elements
+    // Create pulsing geometric elements across full screen
     const createPulsingGeometry = () => {
       const shapes = [];
       
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         const geometryType = Math.random();
         let geometry;
         
@@ -141,9 +156,9 @@ export default function ParticleSystem() {
         
         const mesh = new (window as any).THREE.Mesh(geometry, material);
         mesh.position.set(
-          (Math.random() - 0.5) * 18,
-          (Math.random() - 0.5) * 18,
-          (Math.random() - 0.5) * 10
+          (Math.random() - 0.5) * 35,
+          (Math.random() - 0.5) * 25,
+          (Math.random() - 0.5) * 20
         );
         
         mesh.userData = {
@@ -187,10 +202,10 @@ export default function ParticleSystem() {
           positions[i + 1] += velocities[i + 1] + Math.sin(time + i * 0.01) * 0.002;
           positions[i + 2] += velocities[i + 2];
           
-          // Boundary wrapping
-          if (Math.abs(positions[i]) > 25) velocities[i] *= -1;
-          if (Math.abs(positions[i + 1]) > 15) velocities[i + 1] *= -1;
-          if (Math.abs(positions[i + 2]) > 25) velocities[i + 2] *= -1;
+          // Boundary wrapping for full-screen coverage
+          if (Math.abs(positions[i]) > 35) velocities[i] *= -1;
+          if (Math.abs(positions[i + 1]) > 20) velocities[i + 1] *= -1;
+          if (Math.abs(positions[i + 2]) > 30) velocities[i + 2] *= -1;
           
           // Color pulsing effect
           const pulse = Math.sin(time * 2 + i * 0.01) * 0.3 + 0.7;
@@ -265,7 +280,11 @@ export default function ParticleSystem() {
     <canvas
       ref={canvasRef}
       id="three-canvas"
-      className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
+      className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
+      style={{
+        background: 'transparent',
+        mixBlendMode: 'screen'
+      }}
     />
   );
 }
