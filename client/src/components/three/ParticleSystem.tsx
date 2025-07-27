@@ -8,27 +8,6 @@ export default function ParticleSystem() {
   useEffect(() => {
     if (!scene || !camera || !renderer) return;
 
-    // Animation loop for cursor trail
-    const animateCursorTrail = () => {
-      cursorTrail.forEach((particle, index) => {
-        // Smooth following motion
-        particle.position.x += (particle.userData.targetX - particle.position.x) * 0.15;
-        particle.position.y += (particle.userData.targetY - particle.position.y) * 0.15;
-
-        // Floating motion
-        const time = Date.now() * 0.001;
-        particle.position.z = 5 + Math.sin(time * 2 + index) * 0.5;
-
-        // Color cycling
-        const hue = (0.6 + Math.sin(time + index * 0.5) * 0.1) % 1;
-        particle.material.color.setHSL(hue, 1.0, 0.7);
-
-        // Rotation
-        particle.rotation.x += 0.02;
-        particle.rotation.y += 0.03;
-      });
-    };
-
     // Enhanced particle system with full-screen coverage and vibrant colors
     const createParticles = () => {
       const particleCount = 4500;
@@ -260,6 +239,58 @@ export default function ParticleSystem() {
     const streams = createEnergyStreams();
     const geometries = createPulsingGeometry();
 
+    // Create cursor trail effect
+    const createCursorTrail = () => {
+      const trailParticles = [];
+      const trailCount = 15;
+
+      for (let i = 0; i < trailCount; i++) {
+        const geometry = new (window as any).THREE.SphereGeometry(0.02 + i * 0.005, 8, 8);
+        const material = new (window as any).THREE.MeshBasicMaterial({
+          color: new (window as any).THREE.Color().setHSL(0.6 + i * 0.02, 1.0, 0.7),
+          transparent: true,
+          opacity: 1 - (i / trailCount),
+          blending: (window as any).THREE.AdditiveBlending
+        });
+
+        const particle = new (window as any).THREE.Mesh(geometry, material);
+        particle.position.set(0, 0, 5);
+        particle.userData = {
+          targetX: 0,
+          targetY: 0,
+          delay: i * 50
+        };
+
+        trailParticles.push(particle);
+        scene.add(particle);
+      }
+
+      return trailParticles;
+    };
+
+    const cursorTrail = createCursorTrail();
+
+    // Animation loop for cursor trail
+    const animateCursorTrail = () => {
+      cursorTrail.forEach((particle, index) => {
+        // Smooth following motion
+        particle.position.x += (particle.userData.targetX - particle.position.x) * 0.15;
+        particle.position.y += (particle.userData.targetY - particle.position.y) * 0.15;
+
+        // Floating motion
+        const time = Date.now() * 0.001;
+        particle.position.z = 5 + Math.sin(time * 2 + index) * 0.5;
+
+        // Color cycling
+        const hue = (0.6 + Math.sin(time + index * 0.5) * 0.1) % 1;
+        particle.material.color.setHSL(hue, 1.0, 0.7);
+
+        // Rotation
+        particle.rotation.x += 0.02;
+        particle.rotation.y += 0.03;
+      });
+    };
+
     // Enhanced animation loop with vibrant interactive effects
     const animationLoop = () => {
       const time = Date.now() * 0.001;
@@ -357,37 +388,6 @@ export default function ParticleSystem() {
     };
 
     animate(animationLoop);
-
-    // Create cursor trail effect
-    const createCursorTrail = () => {
-      const trailParticles = [];
-      const trailCount = 15;
-
-      for (let i = 0; i < trailCount; i++) {
-        const geometry = new (window as any).THREE.SphereGeometry(0.02 + i * 0.005, 8, 8);
-        const material = new (window as any).THREE.MeshBasicMaterial({
-          color: new (window as any).THREE.Color().setHSL(0.6 + i * 0.02, 1.0, 0.7),
-          transparent: true,
-          opacity: 1 - (i / trailCount),
-          blending: (window as any).THREE.AdditiveBlending
-        });
-
-        const particle = new (window as any).THREE.Mesh(geometry, material);
-        particle.position.set(0, 0, 5);
-        particle.userData = {
-          targetX: 0,
-          targetY: 0,
-          delay: i * 50
-        };
-
-        trailParticles.push(particle);
-        scene.add(particle);
-      }
-
-      return trailParticles;
-    };
-
-    const cursorTrail = createCursorTrail();
 
     // Enhanced mouse interaction with cursor trail and scroll effects
     let mouseX = 0;
